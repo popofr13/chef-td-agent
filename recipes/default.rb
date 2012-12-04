@@ -33,8 +33,11 @@ case node['platform']
 when "ubuntu"
   dist = 'lucid'
   dist = 'precise' if node['lsb']['codename'] == 'precise'
+
+  repositoryUri = 'http://packages.treasure-data.com/debian/' if node['lsb']['codename'] == 'http://packages.treasure-data.com/precise/'
+
   apt_repository "treasure-data" do
-    uri "http://packages.treasure-data.com/debian/"
+    uri repositoryUri
     distribution dist
     components ["contrib"]
     action :add
