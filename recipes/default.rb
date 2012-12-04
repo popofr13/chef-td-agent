@@ -34,7 +34,8 @@ when "ubuntu"
   dist = 'lucid'
   dist = 'precise' if node['lsb']['codename'] == 'precise'
 
-  repositoryUri = 'http://packages.treasure-data.com/debian/' if node['lsb']['codename'] == 'http://packages.treasure-data.com/precise/'
+  repositoryUri = 'http://packages.treasure-data.com/debian/'
+  repositoryUri = 'http://packages.treasure-data.com/precise/' if node['lsb']['codename'] == 'precise'
 
   apt_repository "treasure-data" do
     uri repositoryUri
