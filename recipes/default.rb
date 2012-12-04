@@ -42,6 +42,7 @@ when "ubuntu"
     distribution dist
     components ["contrib"]
     action :add
+    notifies :run, resources(:execute => "apt-get update"), :immediately
   end
 when "centos", "redhat"
   yum_repository "treasure-data" do
