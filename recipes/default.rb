@@ -41,8 +41,8 @@ when "ubuntu"
     uri repositoryUri
     distribution dist
     components ["contrib"]
+    cache_rebuild true
     action :add
-    notifies :run, resources(:execute => "apt-get update"), :immediately
   end
 when "centos", "redhat"
   yum_repository "treasure-data" do
