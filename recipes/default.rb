@@ -44,6 +44,11 @@ when "ubuntu"
     cache_rebuild true
     action :add
   end
+
+  execute "apt-get update" do
+    action :run
+  end
+  
 when "centos", "redhat"
   yum_repository "treasure-data" do
     url "http://packages.treasure-data.com/redhat/$basearch"
